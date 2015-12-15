@@ -1,0 +1,50 @@
+'use strict';
+/**
+ * Created by mobinni on 07/12/15.
+ */
+/* All subsequent files required by node with the extensions
+ *.es6, .es, .jsx and .js will be transformed by Babel.
+ * The polyfill is also automatically required.
+ */
+require("babel/register")({
+    ignore: /node_modules/
+});
+
+// Browser variable declaration should be ignored by server
+delete process.env.BROWSER;
+
+// Imports
+const utils = require('./utils'),
+    express = require('express'),
+    piping = require('piping'),
+    webPackCustomMiddleware = require('./middleware').webpack,
+    router = require('./middleware').router,
+    compression = require('compression'),
+    app = express();
+
+// Configuration
+const port = utils.env.isProduction ? process.env.PORT : 9000;
+
+// Environment setup
+if (!utils.env.isProduction) {
+    if (!require("piping")({hook: true, includeModules: false, ignore:'node_modules|app'})) { return; }
+
+    app.use(function (req, res, next) {
+        if (req.url !== '/') {
+            // if you're not the root url, pass throught the webpack middleware
+            webPackCustomMiddleware.WebPackMiddleware(req, res, next);
+        } else {
+            // Will pass through a middleware to server side render index.html
+            next();
+        }
+    });
+
+    app.use(webPackCustomMiddleware.HotReloadMiddleware);
+}
+
+
+// Other middlewares
+app.use(compression());
+app.use(router);
+
+app.listen(port, () => console.log('Server running on port ' + port));

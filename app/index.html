@@ -1,0 +1,19 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script type="application/javascript">
+        window.__INITIAL_STATE__ = '<%- initialState %>';
+    </script>
+</head>
+<body>
+
+<div id="root"><%- reactOutput %></div>
+<div id="dev"></div>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.app.entry%}"  charset="utf-8"></script>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.tools.entry%}"  charset="utf-8"></script>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.vendors.entry%}"  charset="utf-8"></script>
+
+</body>
+</html>
