@@ -30,6 +30,7 @@ export default (req, res, next) => {
                 res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
             } else if (renderProps) {
                 renderEngine(
+                    env.ssrEnabled,
                     renderProps,
                     body
                 ).then(function (html) {

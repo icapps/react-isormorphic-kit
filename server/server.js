@@ -20,10 +20,16 @@ const utils = require('./utils'),
 // Configuration
 const port = utils.env.isProduction ? process.env.PORT : 9000;
 
+
 // Environment setup
 if (utils.env.isDevelopment) {
+
     // turn this line off to turn off SSR updates
-    if (!require("piping")({hook: true, includeModules: false })) { return; }
+    if (utils.env.ssrEnabled) {
+        if (!require("piping")({hook: true, includeModules: false})) {
+            return;
+        }
+    }
 
     app.use(function (req, res, next) {
         if (req.url !== '/') {

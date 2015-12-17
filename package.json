@@ -51,9 +51,10 @@
     "webpack-hot-middleware": "^2.4.1"
   },
   "scripts": {
+    "serve-ssr": "node ./server/server.js ssr",
     "serve": "node ./server/server.js",
     "build": "webpack --config ./webpack/webpack.prod.config.js -p"
   },
   "author": "Mo Binni",
-  "license": "ISC"
+  "license": "MIT"
 }

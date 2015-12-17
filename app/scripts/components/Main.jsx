@@ -5,7 +5,7 @@ class Main extends Component {
     render() {
         return (
             <div>
-                {'Home Pag2e' || this.props.children}
+                {'Home Page' || this.props.children}
             </div>
           
         )
