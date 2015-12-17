@@ -12,7 +12,6 @@ delete process.env.BROWSER;
 // Imports
 const utils = require('./utils'),
     express = require('express'),
-    piping = require('piping'),
     webPackCustomMiddleware = require('./middleware').webpack,
     router = require('./middleware').router,
     compression = require('compression'),
@@ -23,7 +22,8 @@ const port = utils.env.isProduction ? process.env.PORT : 9000;
 
 // Environment setup
 if (utils.env.isDevelopment) {
-    if (!require("piping")({hook: true, includeModules: false, ignore:/node_modules|app/})) { return; }
+    // turn this line off to turn off SSR updates
+    if (!require("piping")({hook: true, includeModules: false })) { return; }
 
     app.use(function (req, res, next) {
         if (req.url !== '/') {

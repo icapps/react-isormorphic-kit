@@ -37,6 +37,7 @@ const WebPackMiddleware = webpackDevMiddleware(compiler, {
         aggregateTimeout: 300,
         poll: true
     },
+    hot: true,
     colors: true,
     headers: {'X-Webpack-Rendered': 'yes'}
 });
@@ -45,6 +46,7 @@ const query = function (path, cb) {
     requests.push({path, cb});
     processRequests();
 };
+
 
 const HotReloadMiddleware = HotReload(compiler);
 
