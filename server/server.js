@@ -2,10 +2,6 @@
 /**
  * Created by mobinni on 07/12/15.
  */
-/* All subsequent files required by node with the extensions
- *.es6, .es, .jsx and .js will be transformed by Babel.
- * The polyfill is also automatically required.
- */
 require("babel/register")({
     ignore: /node_modules/
 });
@@ -26,8 +22,8 @@ const utils = require('./utils'),
 const port = utils.env.isProduction ? process.env.PORT : 9000;
 
 // Environment setup
-if (!utils.env.isProduction) {
-    if (!require("piping")({hook: true, includeModules: false, ignore:'node_modules|app'})) { return; }
+if (utils.env.isDevelopment) {
+    if (!require("piping")({hook: true, includeModules: false, ignore:/node_modules|app/})) { return; }
 
     app.use(function (req, res, next) {
         if (req.url !== '/') {

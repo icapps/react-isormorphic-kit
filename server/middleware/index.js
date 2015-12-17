@@ -1,7 +1,7 @@
 import utils from '../utils';
 
-import webpack from './webpackMiddleware';
-import router from './routingMiddleware';
+import webpack from './webpack';
+import router from './routing';
 
 export default {
     router,

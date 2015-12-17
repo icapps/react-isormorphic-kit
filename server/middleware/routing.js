@@ -1,10 +1,11 @@
 /**
  * Created by mobinni on 08/12/15.
  */
-import webpack from './webpackMiddleware';
+import webpack from './webpack';
 import { match } from 'react-router';
 import createLocation from 'history/lib/createLocation';
-import utils, {render, env} from '../utils';
+import {env} from '../utils';
+import {renderEngine} from '../engines';
 import routes from '../../app/scripts/routes';
 
 const query = (file, callback) => {
@@ -28,7 +29,7 @@ export default (req, res, next) => {
             } else if (redirectLocation) {
                 res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
             } else if (renderProps) {
-                render(
+                renderEngine(
                     renderProps,
                     body
                 ).then(function (html) {
@@ -43,4 +44,3 @@ export default (req, res, next) => {
         });
     });
 };
-

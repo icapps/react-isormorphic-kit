@@ -48,13 +48,6 @@ const query = function (path, cb) {
 
 const HotReloadMiddleware = HotReload(compiler);
 
-export default {
-    WebPackMiddleware,
-    query,
-    HotReloadMiddleware
-}
-
-
 function processRequests() {
     if (!webpackFs) {
         return;
@@ -73,4 +66,8 @@ function processRequests() {
     processRequests();
 }
 
-
+export default {
+    WebPackMiddleware,
+    query,
+    HotReloadMiddleware
+}
