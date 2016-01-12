@@ -1,5 +1,5 @@
 import renderEngine from './renderEngine';
 
-export default {
+export {
     renderEngine
 }

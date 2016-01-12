@@ -9,9 +9,9 @@ const _renderComponents = (props) => {
     );
 };
 
-export default (shouldRender, renderProps, indexHtml) => {
+export default (renderProps, indexHtml) => {
     return new Promise((resolve, reject) => {
-        let output = shouldRender ? _renderComponents(renderProps) : '';
+        let output = _renderComponents(renderProps);
         resolve(
             ejs.render(indexHtml, {
                 reactOutput: output

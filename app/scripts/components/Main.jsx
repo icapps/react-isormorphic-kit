@@ -5,7 +5,8 @@ class Main extends Component {
     render() {
         return (
             <div>
-                {'Home Page' || this.props.children}
+                <Link to={'/feed'}>Feed</Link>
+                {this.props.children || 'Home'}
             </div>
           
         )

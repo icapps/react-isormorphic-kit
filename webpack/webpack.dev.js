@@ -17,7 +17,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/../dist',
-        publicPath: '/', 
+        publicPath: '/',
         filename: "[name].js",
         sourceMapFilename: "[name].js.map"
     },
@@ -28,76 +28,76 @@ module.exports = {
     debug: true, // switch loaders to debug mode
     devtool: 'eval-source-map', // important for debugging obfuscated from browser
     plugins: [
-      new ExtractTextPlugin('styles.css', {
-        allChunks: true
-      }),
-      new webpack.DefinePlugin({
-        __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || true)),
+        new ExtractTextPlugin('styles.css', {
+            allChunks: true
+        }),
+        new webpack.DefinePlugin({
+            __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || true)),
             'process.env': {
                 BROWSER: JSON.stringify(true)
             }
-      }),
-      new HtmlWebpackPlugin({
-        template: __dirname + '/../app/index.html',
-        filename: 'index.html'
-      }),
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.optimize.OccurenceOrderPlugin(),
+        }),
+        new HtmlWebpackPlugin({
+            template: __dirname + '/../app/index.html',
+            filename: 'index.html'
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
     ],
     module: {
         preLoaders: [
-                {
-                    test: /\.json$/,
-                    exclude: /node_modules/,
-                    loader: 'json loader'
-                }
+            {
+                test: /\.json$/,
+                exclude: /node_modules/,
+                loader: 'json loader'
+            }
         ],
         loaders: [
-              {
-                  test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$|\.html$/,
-                  loader: "file"
-              },
-              {
-                  test: /\.jsx$/,
-                  loaders: ['react-hot', 'babel?stage=1'],
-                  exclude: [/node_modules/,/app\/core\/node_modules/]
-              },
-              {
-                  test: /\.js$/,
-                  loaders: ["react-hot", 'babel-loader'],
-                  exclude: [/node_modules/,/app\/core\/node_modules/]
-              },
-              // generate css files for general styles
-              {
-                  test: /\.scss$/,
-                  loader: ExtractTextPlugin.extract(
-                      "style-loader",
-                      "css-loader?minimize!sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
-                  ),
-                  include: [/app\/styles\/general/],
-                  exclude: [/node_modules/, /app\/core\/node_modules/]
-          
-              },
-              // generate inline styles for component files
-              {
-                  test: /\.scss$/,
-                  loaders: [
-                      "style-loader",
-                      "css-loader?minimize",
-                      "sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
-                  ],
-                  include: [/app\/styles\/component/]
-              },
-              // lint all sass
-              {
-                  test: /\.scss$/,
-                  loader: "sasslint"
-              },
-              {
-                  test: /\.js$|\.jsx$/,
-                  loader: "eslint",
-                  exclude: [/node_modules/,/app\/core\/node_modules/]
-              }
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.ttf$|\.wav$|\.mp3$|\.html$/,
+                loader: "file"
+            },
+            {
+                test: /\.jsx$/,
+                loaders: ['react-hot', 'babel'],
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.js$/,
+                loaders: ['react-hot', 'babel-loader'],
+                exclude: [/node_modules/]
+            },
+            // generate css files for general styles
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract(
+                    "style-loader",
+                    "css-loader?minimize!sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
+                ),
+                include: [/app\/styles\/general/],
+                exclude: [/node_modules/, /app\/core\/node_modules/]
+
+            },
+            // generate inline styles for component files
+            {
+                test: /\.scss$/,
+                loaders: [
+                    "style-loader",
+                    "css-loader?minimize",
+                    "sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
+                ],
+                include: [/app\/styles\/component/]
+            },
+            // lint all sass
+            {
+                test: /\.scss$/,
+                loader: "sasslint"
+            },
+            {
+                test: /\.js$|\.jsx$/,
+                loader: "eslint",
+                exclude: [/node_modules/, /app\/core\/node_modules/]
+            }
         ]
     },
     externals: {},

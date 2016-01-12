@@ -1,13 +1,13 @@
 import WebPack from 'webpack';
 import path from 'path';
 import fs from 'fs';
-import utils from '../utils';
+import env from '../utils/environment';
 import {StringDecoder} from 'string_decoder';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import HotReload from 'webpack-hot-middleware';
 
 let webpackConfig = require(
-    `${__dirname}/../../webpack/webpack.${utils.env.isProduction ? 'prod' : 'dev'}.js`
+    `${__dirname}/../../webpack/webpack.${env.isProduction ? 'prod' : 'dev'}.js`
 );
 
 let bundleStart = null;
@@ -66,6 +66,12 @@ function processRequests() {
     });
 
     processRequests();
+}
+
+export {
+    WebPackMiddleware,
+    query,
+    HotReloadMiddleware
 }
 
 export default {

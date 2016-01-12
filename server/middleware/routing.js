@@ -1,16 +1,16 @@
 /**
  * Created by mobinni on 08/12/15.
  */
-import webpack from './webpack';
+import webpackMw from './webpack';
 import { match } from 'react-router';
 import createLocation from 'history/lib/createLocation';
-import {env} from '../utils';
+import env from '../utils/environment';
 import {renderEngine} from '../engines';
 import routes from '../../app/scripts/routes';
 
 const query = (file, callback) => {
     if (!env.isProduction) {
-        webpack.query(file, function (err, body) {
+        webpackMw.query(file, function (err, body) {
             callback(err, body);
         });
     } else {
@@ -30,7 +30,6 @@ export default (req, res, next) => {
                 res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
             } else if (renderProps) {
                 renderEngine(
-                    env.ssrEnabled,
                     renderProps,
                     body
                 ).then(function (html) {

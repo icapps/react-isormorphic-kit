@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 if(process.env.BROWSER) {
-  require( '../../../../styles/components/feed.scss');
+  require('../../../../styles/components/feed.scss');
 }
 class Feed extends Component {
     constructor(props, context) {
