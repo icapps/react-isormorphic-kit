@@ -6,6 +6,7 @@
 delete process.env.BROWSER;
 
 // Imports
+import 'babel-polyfill';
 import env from './utils/environment';
 import express from 'express';
 import {webpack as webPackCustomMiddleware, router, renderIndex} from './middleware';

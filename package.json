@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A modern isomorphic setup containing: React, Redux, NodeJS, WebPack, Redux DevTools, Serverside rendering, React Router, etc.",
   "dependencies": {
+    "babel-polyfill": "^6.3.14",
     "ejs": "^2.3.4",
     "history": "^1.13.1",
     "lodash": "^3.10.1",
