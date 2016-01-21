@@ -87,16 +87,6 @@ module.exports = {
                     "sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
                 ],
                 include: [/app\/styles\/component/]
-            },
-            // lint all sass
-            {
-                test: /\.scss$/,
-                loader: "sasslint"
-            },
-            {
-                test: /\.js$|\.jsx$/,
-                loader: "eslint",
-                exclude: [/node_modules/, /app\/core\/node_modules/]
             }
         ]
     },

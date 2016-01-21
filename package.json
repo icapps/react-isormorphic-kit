@@ -46,10 +46,7 @@
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^2.1.5",
     "redux-slider-monitor": "^0.6.4",
-    "sass-lint": "^1.3.0",
     "sass-loader": "^3.0.0",
-    "sasslint": "0.0.10",
-    "sasslint-loader": "git+https://github.com/alleyinteractive/sasslint-loader.git",
     "style-loader": "^0.12.4",
     "webpack": "^1.12.2",
     "webpack-dev-hmr": "^1.0.0",
@@ -57,9 +54,8 @@
     "webpack-hot-middleware": "^2.4.1"
   },
   "scripts": {
-    "serve-ssr": "node ./server ssr",
-    "serve": "node ./server",
-    "build": "webpack --config ./webpack/webpack.prod.config.js -p"
+    "serve-ssr": "babel-node node ./server ssr",
+    "serve": "babel-node ./server"
   },
   "author": "Mo Binni",
   "license": "MIT"
