@@ -7,23 +7,23 @@ import ReduxDevTools, {DevTools, DebugPanel,LogMonitor} from 'redux-devtools/lib
 
 const store = window.__STORE__;
 if (__DEV__) {
-    //ReactDOM.render(
-    //    <div>
-    //        <DebugPanel top
-    //                    bottom
-    //                    right>
-    //            <DevTools store={store}
-    //                      visibleOnLoad={false}
-    //                      monitor={LogMonitor}/>
-    //        </DebugPanel>
-    //        <DebugPanel left
-    //                    right
-    //                    bottom>
-    //            <DevTools store={store}
-    //                      visibleOnLoad={false}
-    //                      keyboardEnabled
-    //                      monitor={SliderMonitor}/>
-    //        </DebugPanel>
-    //    </div>
-    //    , document.getElementById('devtools'));
+    ReactDOM.render(
+       <div>
+           <DebugPanel top
+                       bottom
+                       right>
+               <DevTools store={store}
+                         visibleOnLoad={false}
+                         monitor={LogMonitor}/>
+           </DebugPanel>
+           <DebugPanel left
+                       right
+                       bottom>
+               <DevTools store={store}
+                         visibleOnLoad={false}
+                         keyboardEnabled
+                         monitor={SliderMonitor}/>
+           </DebugPanel>
+       </div>
+       , document.getElementById('devtools'));
 }

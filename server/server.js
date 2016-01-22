@@ -21,7 +21,6 @@ export function boot() {
 
 // Environment setup
     if (isDevelopment) {
-
         // turn this line off to turn off SSR updates
         if (ssrEnabled) {
             if (!require("piping")({hook: true, includeModules: false})) {
