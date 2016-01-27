@@ -7,7 +7,7 @@ module.exports = {
         // entry point for your app
         app: ['webpack-hot-middleware/client', __dirname + '/../app/scripts/app.js'],
         // entry point for redux devtools
-        tools: ['webpack-hot-middleware/client', __dirname + '/../app/scripts/devtools.js'],
+        tools: ['webpack-hot-middleware/client', __dirname + '/../app/scripts/devtools.jsx'],
         // vendors
         vendors: [
             'react',

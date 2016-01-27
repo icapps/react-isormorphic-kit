@@ -1,10 +1,10 @@
 import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
-import { devTools } from 'redux-devtools';
+import DevTools from '../devtools';
 
 function _buildStore(middlewares, reducers) {
   return compose(
     applyMiddleware(...middlewares),
-    devTools()
+    DevTools.instrument()
   )(createStore)(combineReducers(reducers));
 }
 

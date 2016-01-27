@@ -8,7 +8,7 @@ delete process.env.BROWSER;
 // Imports
 import env from './utils/environment';
 import express from 'express';
-import {webpack as webPackCustomMiddleware, router, renderIndex} from './middleware';
+import {webpack as webPackCustomMiddleware, render} from './middleware';
 import compression from 'compression';
 
 const app = express();
@@ -45,9 +45,9 @@ export function boot() {
     // Other middlewares
     app.use(compression());
     if(ssrEnabled) {
-        app.use(router);
+        app.use(render.route);
     } else {
-        app.use(renderIndex);
+        app.use(render.index);
     }
 
     app.listen(port, () => console.log('Server running on port ' + port));

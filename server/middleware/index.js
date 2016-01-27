@@ -1,15 +1,12 @@
 import webpack from './webpack';
-import router from './routing';
-import renderIndex from './renderIndex';
+import render from './render';
 
 export default {
-    router,
-    webpack,
-    renderIndex
+    render,
+    webpack
 }
 
 export {
-    router,
-    webpack,
-    renderIndex
+    render,
+    webpack
 }

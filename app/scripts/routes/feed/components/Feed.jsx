@@ -19,9 +19,7 @@ class Feed extends Component {
         const dispatch = this.props.dispatch;
         dispatch(feed().actions.loadFeeds());
     }
-    componentWillReceiveProps(currentProps, nextProps) {
-        console.log('props');
-    }
+
     render() {
         const {feeds} = this.props || [];
         console.log(feeds);
@@ -40,7 +38,6 @@ class Feed extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log('got here');
   return { feeds: state.feeds }
 }
 
