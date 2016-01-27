@@ -1,0 +1,14 @@
+# 1.0.0
+- Dynamic webpack configuration for different build environments
+- Configuration files for environments, with environment specific assets, etc.
+- Integrate react-transform
+- Integrate custom provider to push modules and client-configuration to client
+- Integrate Redux promise middleware to allow server-side rendering to have data on render.
+- Integrate Redux actionHistory middleware, to build store based on action history
+- Implement force-check and force-execute properties (force check allows you to only do server-side rendering once, after which the client takes over, force execute forces the client to always refresh the action to get new data)
+- Integrate mocha testing suite
+- Implement data service for async calls
+- Split out core a separate module so it can be a basic redux starting point
+- Integrate CI compatibility? 
+- Create build script: imageOptim, webpack build config, etc.
+- Localization integration
