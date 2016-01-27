@@ -19,13 +19,6 @@ export function boot() {
 
 // Environment setup
     if (isDevelopment) {
-        // turn this line off to turn off SSR updates
-        if (ssrEnabled) {
-            if (!require("piping")({hook: true, includeModules: false})) {
-                return;
-            }
-        }
-
         app.use(function (req, res, next) {
             if (req.url !== '/') {
                 // if you're not the root url, pass throught the webpack middleware

@@ -2,7 +2,7 @@ import {RoutingContext} from 'react-router';
 import ejs from 'ejs';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Provider from 'react-redux';
+import {Provider} from 'react-redux';
 
 const _renderComponents = (props, store) => {
     return ReactDOMServer.renderToString(
