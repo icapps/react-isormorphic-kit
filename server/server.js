@@ -2,8 +2,6 @@
  * Created by mobinni on 07/12/15.
  */
 
-// Browser variable declaration should be ignored by server
-delete process.env.BROWSER;
 
 // Imports
 import env from './utils/environment';

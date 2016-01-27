@@ -2,9 +2,7 @@ class ModuleCollector {
   constructor(config) {
     this.actions = [];
     this.reducers = [];
-
     this.modules = {};
-
     this.config = config;
   }
 

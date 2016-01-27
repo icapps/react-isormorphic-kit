@@ -32,9 +32,13 @@ module.exports = {
             allChunks: true
         }),
         new webpack.DefinePlugin({
-            __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || true)),
-            'process.env': {
-                BROWSER: JSON.stringify(true)
+            process: {
+                env:{
+                    BROWSER: JSON.stringify(true),
+                    feature: {
+                        DEV: JSON.stringify(true)
+                    }
+                }
             }
         }),
         new HtmlWebpackPlugin({

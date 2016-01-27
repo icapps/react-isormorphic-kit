@@ -1,9 +1,9 @@
-import Actions from './actions';
+import actions from './actions';
 import reducers from './reducers';
 
 export default (config) => {
   return {
-    actions: new Actions(config),
+    actions: actions(config),
     reducers,
     name: 'feed'
   };

@@ -1,5 +1,7 @@
-export default class Actions {
-    loadFeeds() {
-        return { type: 'get', payload: ['feed 1', 'feed 2', 'feed 3'] }
+export default function (config) {
+    return {
+        loadFeeds() {
+            return { type: 'get', payload: ['feed 1', 'feed 2', 'feed 3'] }
+        }
     }
 }

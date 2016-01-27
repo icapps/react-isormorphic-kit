@@ -16,7 +16,7 @@ const history = createBrowserHistory();
 
 const {store, modules, middlewares} = initialise([createLogger()]);
 
-if (__DEV__) {
+if(process.env.feature.DEV) {
   window.__STORE__ = store;
 }
 
