@@ -12,7 +12,12 @@ module.exports = {
         vendors: [
             'react',
             'react-dom',
-            'react-router'
+            'react-router',
+            'react-redux',
+            'lodash',
+            'redux',
+            'history',
+            'redux-thunk'
         ]
     },
     output: {
@@ -26,14 +31,14 @@ module.exports = {
         reasons: true
     },
     debug: true, // switch loaders to debug mode
-    devtool: 'eval-source-map', // important for debugging obfuscated from browser
+    devtool: 'source-map', // important for debugging obfuscated from browser
     plugins: [
         new ExtractTextPlugin('styles.css', {
             allChunks: true
         }),
         new webpack.DefinePlugin({
             process: {
-                env:{
+                env: {
                     BROWSER: JSON.stringify(true),
                     feature: {
                         DEV: JSON.stringify(true)
@@ -49,6 +54,7 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
     ],
     module: {
+
         preLoaders: [
             {
                 test: /\.json$/,
@@ -63,7 +69,25 @@ module.exports = {
             },
             {
                 test: /\.jsx$/,
-                loaders: ['react-hot', 'babel'],
+                loader: 'babel',
+                query: {
+                    env: {
+                        development: {
+                            plugins: [
+                                ['react-transform', {
+                                    transforms: [{
+                                        transform: 'react-transform-hmr',
+                                        imports: ['react'],
+                                        locals: ['module']
+                                    }, {
+                                            transform: 'react-transform-catch-errors',
+                                            imports: ['react', 'redbox-react']
+                                        }]
+                                }]
+                            ]
+                        }
+                    }
+                },
                 exclude: [/node_modules/]
             },
             {
@@ -77,7 +101,7 @@ module.exports = {
                 loader: ExtractTextPlugin.extract(
                     "style-loader",
                     "css-loader?minimize!sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
-                ),
+                    ),
                 include: [/app\/styles\/general/],
                 exclude: [/node_modules/, /app\/core\/node_modules/]
 
@@ -90,7 +114,8 @@ module.exports = {
                     "css-loader?minimize",
                     "sass-loader?outputStyle=compressed&linefeed=lfcr&indentedSyntax=false"
                 ],
-                include: [/app\/styles\/component/]
+                include: [/app\/styles\/component/],
+                exclude: /node_modules/
             }
         ]
     },
@@ -100,10 +125,8 @@ module.exports = {
     },
     node: {},
     browser: {},
-    eslint: {
-        configFile: __dirname + '/../.eslintrc'
-    },
     sasslint: {
         configFile: __dirname + '/../.sass-lint.yml'
     }
 };
+

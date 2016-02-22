@@ -6,5 +6,7 @@ import DevTools from '../lib/utils/devtools';
 
 if(process.env.feature.DEV) {
     const store = window.__STORE__;
-    ReactDOM.render(<DevTools store={store}/>, document.getElementById('devtools'));
+  //  ReactDOM.render(<DevTools store={store}/>, document.getElementById('devtools'));
 }
+
+
