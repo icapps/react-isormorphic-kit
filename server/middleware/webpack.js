@@ -5,9 +5,10 @@ import env from '../utils/environment';
 import {StringDecoder} from 'string_decoder';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import HotReload from 'webpack-hot-middleware';
+import chokidar from 'chokidar';
 
 let webpackConfig = require(
-    `${__dirname}/../../webpack/webpack.${env.isProduction ? 'prod' : 'dev'}.js`
+  `${__dirname}/../../webpack/webpack.${env.isProduction ? 'prod' : 'dev'}.js`
 );
 
 let bundleStart = null;
@@ -20,62 +21,76 @@ let decoder = new StringDecoder('utf8');
 
 // Webpack starts bundling
 compiler.plugin('compile', function () {
-    bundleStart = Date.now();
+  bundleStart = Date.now();
 });
 
+var watcher = chokidar.watch(__dirname + '/../server');
+
+watcher.on('ready', function () {
+  watcher.on('all', function () {
+    console.log("Clearing /server/ module cache from server");
+    Object.keys(require.cache).forEach(function (id) {
+      if (/[\/\\]server[\/\\]/.test(id)) delete require.cache[id];
+    });
+  });
+});
 
 // Webpack is done compiling
 compiler.plugin('done', function () {
-    console.log('Bundled in ' + (Date.now() - bundleStart) + 'ms!');
+  console.log('Bundled in ' + (Date.now() - bundleStart) + 'ms!');
 
-    webpackFs = compiler.outputFileSystem;
-    processRequests();
+  webpackFs = compiler.outputFileSystem;
+  processRequests();
+
+  Object.keys(require.cache).forEach(function (id) {
+    if (/[\/\\]client[\/\\]/.test(id)) delete require.cache[id];
+  });
 });
 
 const WebPackMiddleware = webpackDevMiddleware(compiler, {
-    watchOptions: {
-        aggregateTimeout: 300,
-        poll: true
-    },
-    hot: true,
-    colors: true,
-    headers: {'X-Webpack-Rendered': 'yes'}
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: true
+  },
+  hot: true,
+  colors: true,
+  headers: {'X-Webpack-Rendered': 'yes'}
 });
 
 const query = function (path, cb) {
-    requests.push({path, cb});
-    processRequests();
+  requests.push({path, cb});
+  processRequests();
 };
 
 
 const HotReloadMiddleware = HotReload(compiler);
 
 function processRequests() {
-    if (!webpackFs) {
-        return;
-    }
+  if (!webpackFs) {
+    return;
+  }
 
-    let req = requests.pop();
+  let req = requests.pop();
 
-    if (!req) {
-        return;
-    }
+  if (!req) {
+    return;
+  }
 
-    webpackFs.readFile(webpackConfig.output.path + '/' + req.path, function (err, data) {
-        req.cb(err, decoder.write(data));
-    });
+  webpackFs.readFile(webpackConfig.output.path + '/' + req.path, function (err, data) {
+    req.cb(err, decoder.write(data));
+  });
 
-    processRequests();
+  processRequests();
 }
 
 export {
-    WebPackMiddleware,
-    query,
-    HotReloadMiddleware
+  WebPackMiddleware,
+  query,
+  HotReloadMiddleware
 }
 
 export default {
-    WebPackMiddleware,
-    query,
-    HotReloadMiddleware
+  WebPackMiddleware,
+  query,
+  HotReloadMiddleware
 }

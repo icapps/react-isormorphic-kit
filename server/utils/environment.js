@@ -7,8 +7,8 @@ const env = process.env.NODE_ENV || 'DEVELOPMENT';
 const hasSSREnabled = (process.env.SSR || process.argv[2] === 'ssr') || false;
 
 export default {
-    name: env,
-    isProduction: env === 'PRODUCTION',
-    isDevelopment: env === 'DEVELOPMENT',
-    ssrEnabled: hasSSREnabled
+  name: env,
+  isProduction: env === 'PRODUCTION',
+  isDevelopment: env === 'DEVELOPMENT',
+  ssrEnabled: hasSSREnabled
 };

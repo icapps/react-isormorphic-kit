@@ -6,11 +6,11 @@ import SliderMonitor from 'redux-slider-monitor';
 
 
 const DevTools = createDevTools(
-          <DockMonitor toggleVisibilityKey='ctrl-h'
+  <DockMonitor toggleVisibilityKey='ctrl-h'
                changePositionKey='ctrl-q'
                defaultIsVisible={false}>
-                <LogMonitor theme='tomorrow' />
-           </DockMonitor>
-        );
-           
+    <LogMonitor theme='tomorrow'/>
+  </DockMonitor>
+);
+
 export default DevTools;

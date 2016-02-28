@@ -5,16 +5,16 @@ import Feed from './components/Feed';
 import Item from './components/Item';
 
 export default {
-    index: {
-        path: 'feed',
-        getComponent(location, cb) {
-            cb(null, Feed);
-        }
-    },
-    item: {
-        path: 'feed/:item',
-        getComponent(location, cb) {
-            cb(null, Item);
-        }
+  index: {
+    path: 'feed',
+    getComponent(location, cb) {
+      cb(null, Feed);
     }
+  },
+  item: {
+    path: 'feed/:item',
+    getComponent(location, cb) {
+      cb(null, Item);
+    }
+  }
 };

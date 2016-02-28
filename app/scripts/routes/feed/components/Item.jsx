@@ -3,16 +3,16 @@
  */
 import React, {Component} from 'react';
 class Item extends Component {
-    constructor(props, context) {
-        super(props, context);
-    }
+  constructor(props, context) {
+    super(props, context);
+  }
 
-    render() {
-        const {params} = this.props;
-        return (
-            <div>Item: {params.item}</div>
-        )
-    }
+  render() {
+    const {params} = this.props;
+    return (
+      <div>Item: {params.item}</div>
+    )
+  }
 }
 
 export default Item;

@@ -6,21 +6,21 @@ import storeBuilder from './store/storeBuilder';
 import feed from './modules/feed';
 
 export function initialise(customMiddlewares = []) {
-    const moduleCollector = new ModuleCollector();
-    moduleCollector.add(feed);
+  const moduleCollector = new ModuleCollector();
+  moduleCollector.add(feed);
 
-    const coreReducers = moduleCollector.getReducers();
+  const coreReducers = moduleCollector.getReducers();
 
-    const {store, middlewares} = storeBuilder(
-        coreReducers,
-        customMiddlewares
-        );
+  const {store, middlewares} = storeBuilder(
+    coreReducers,
+    customMiddlewares
+  );
 
-    const modules = moduleCollector.get();
+  const modules = moduleCollector.get();
 
-    return { store, modules, middlewares };
+  return {store, modules, middlewares};
 }
 
 export default {
-    initialise
+  initialise
 }

@@ -16,14 +16,14 @@ const history = createBrowserHistory();
 
 const {store, modules, middlewares} = initialise([createLogger()]);
 
-if(process.env.feature.DEV) {
+if (process.env.feature.DEV) {
   window.__STORE__ = store;
 }
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router history={history}
-                routes={routes} />
-    </Provider> ,
-    document.getElementById('root')
+  <Provider store={store}>
+    <Router history={history}
+            routes={routes}/>
+  </Provider>,
+  document.getElementById('root')
 );
