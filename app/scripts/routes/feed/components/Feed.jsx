@@ -6,9 +6,7 @@ import {Link} from 'react-router';
 import feed from '../../../../lib/modules/feed';
 import {connect} from 'react-redux';
 
-if (process.env.BROWSER) {
-  require('../../../../styles/components/feed.scss');
-}
+import '../../../../styles/components/feed.scss';
 
 class Feed extends Component {
   constructor(props, context) {
@@ -25,8 +23,6 @@ class Feed extends Component {
     console.log(feeds);
     return (
       <div>
-        Yolo
-
         <ul>
           {
             feeds.map((feed, i) => {

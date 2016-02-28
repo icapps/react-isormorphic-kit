@@ -2,12 +2,12 @@
  * Created by mobinni on 07/12/15.
  */
 
-
 // Imports
 import env from './utils/environment';
 import express from 'express';
 import {webpack as webPackCustomMiddleware, render} from './middleware';
 import compression from 'compression';
+
 
 const app = express();
 const {isProduction, ssrEnabled, isDevelopment} = env;
