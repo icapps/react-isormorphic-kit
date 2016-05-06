@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="styles.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <script>
+        window.__STORE__ = <%- store %>;
+    </script>
+</head>
+<body>
+
+<div id="root"><%- reactOutput %></div>
+<div id="devtools"></div>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.app.entry%}"
+        charset="utf-8"></script>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.tools.entry%}"
+        charset="utf-8"></script>
+<script src="{%=o.htmlWebpackPlugin.files.chunks.vendors.entry%}"
+        charset="utf-8"></script>
+
+</body>
+</html>
