@@ -64,7 +64,7 @@
     "jsx-webpack-loader": "^0.1.2",
     "loader-utils": "^0.2.11",
     "nodemon": "^1.8.1",
-    "piping": "^0.3.0",
+    "piping": "^0.3.2",
     "react-tools": "^0.13.3",
     "react-transform": "0.0.3",
     "react-transform-catch-errors": "^1.0.1",
