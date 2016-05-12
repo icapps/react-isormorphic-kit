@@ -16,7 +16,7 @@
     "babel-preset-stage-3": "^6.5.0",
     "babel-register": "^6.5.2",
     "chai": "^3.5.0",
-    "compression": "^1.6.1",
+    "compression": "^1.6.2",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "history": "^1.13.1",
