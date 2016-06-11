@@ -4,7 +4,7 @@
   "description": "A modern isomorphic setup containing: React, Redux, NodeJS, WebPack, Redux DevTools, Serverside rendering, React Router, etc.",
   "dependencies": {
     "babel": "^6.5.2",
-    "babel-cli": "^6.5.1",
+    "babel-cli": "^6.10.0",
     "babel-core": "^6.5.2",
     "babel-fast-presets": "0.0.2",
     "babel-loader": "^6.2.3",
