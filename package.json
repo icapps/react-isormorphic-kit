@@ -39,7 +39,7 @@
     "redux-devtools-log-monitor": "^1.0.4",
     "redux-logger": "^2.6.0",
     "redux-thunk": "^1.0.0",
-    "sass-lint": "^1.5.0",
+    "sass-lint": "^1.8.1",
     "sasslint-loader": "git+https://github.com/alleyinteractive/sasslint-loader.git",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
