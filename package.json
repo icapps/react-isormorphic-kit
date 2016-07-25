@@ -22,7 +22,7 @@
     "history": "^1.13.1",
     "lodash": "^3.10.1",
     "lodash.deburr": "^3.2.0",
-    "lodash.repeat": "^3.2.0",
+    "lodash.repeat": "^4.0.4",
     "lodash.words": "^3.2.0",
     "nodemon": "^1.9.0",
     "postcss-modules-extract-imports": "^1.0.0",
