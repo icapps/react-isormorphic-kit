@@ -43,7 +43,7 @@
     "sasslint-loader": "git+https://github.com/alleyinteractive/sasslint-loader.git",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.7.1"
+    "webpack-hot-middleware": "^2.12.2"
   },
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.0",
