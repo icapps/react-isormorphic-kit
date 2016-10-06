@@ -24,7 +24,7 @@
     "lodash.deburr": "^3.2.0",
     "lodash.repeat": "^3.2.0",
     "lodash.words": "^3.2.0",
-    "nodemon": "^1.9.0",
+    "nodemon": "^1.11.0",
     "postcss-modules-extract-imports": "^1.0.0",
     "postcss-modules-local-by-default": "^1.0.1",
     "postcss-modules-scope": "^1.0.0",
