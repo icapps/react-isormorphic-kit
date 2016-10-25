@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "babel-plugin-react-transform": "^2.0.0",
-    "chai": "^3.4.1",
+    "chai": "^3.5.0",
     "chai-immutable": "^1.5.3",
     "chokidar": "^1.4.2",
     "compression": "^1.6.0",
