@@ -37,7 +37,7 @@
     "redux-devtools": "^3.1.1",
     "redux-devtools-dock-monitor": "^1.1.0",
     "redux-devtools-log-monitor": "^1.0.4",
-    "redux-logger": "^2.6.0",
+    "redux-logger": "^2.7.1",
     "redux-thunk": "^1.0.0",
     "sass-lint": "^1.5.0",
     "sasslint-loader": "git+https://github.com/alleyinteractive/sasslint-loader.git",
