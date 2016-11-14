@@ -20,7 +20,7 @@
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "history": "^1.13.1",
-    "lodash": "^3.10.1",
+    "lodash": "^4.17.0",
     "lodash.deburr": "^3.2.0",
     "lodash.repeat": "^3.2.0",
     "lodash.words": "^3.2.0",
