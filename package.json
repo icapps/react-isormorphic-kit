@@ -29,7 +29,7 @@
     "postcss-modules-local-by-default": "^1.0.1",
     "postcss-modules-scope": "^1.0.0",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "react-dom": "^15.4.0",
     "react-redux": "4.0.6",
     "react-router": "^1.0.2",
     "react-tools": "^0.13.3",
