@@ -62,7 +62,7 @@
     "json-loader": "^0.5.2",
     "jsx-loader": "^0.13.2",
     "jsx-webpack-loader": "^0.1.2",
-    "loader-utils": "^0.2.11",
+    "loader-utils": "^1.0.2",
     "nodemon": "^1.8.1",
     "piping": "^0.3.0",
     "react-tools": "^0.13.3",
