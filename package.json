@@ -51,7 +51,7 @@
     "chai-immutable": "^1.5.3",
     "chokidar": "^1.4.2",
     "compression": "^1.6.0",
-    "css-loader": "^0.19.0",
+    "css-loader": "^0.26.2",
     "eslint": "^1.6.0",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.5.1",
