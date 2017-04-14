@@ -41,7 +41,7 @@
     "redux-thunk": "^1.0.0",
     "sass-lint": "^1.5.0",
     "sasslint-loader": "git+https://github.com/alleyinteractive/sasslint-loader.git",
-    "webpack": "^1.12.13",
+    "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.7.1"
   },
