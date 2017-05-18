@@ -30,7 +30,7 @@
     "postcss-modules-scope": "^1.0.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-redux": "4.0.6",
+    "react-redux": "5.0.5",
     "react-router": "^1.0.2",
     "react-tools": "^0.13.3",
     "redux": "^3.3.1",
